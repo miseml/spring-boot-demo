@@ -33,10 +33,21 @@ public class ContinentController
 
     @RequestMapping(
         value = "/continents",
+        method = RequestMethod.DELETE
+    )
+    public void delete( @RequestBody final Continent continent )
+    {
+        service.delete( continent );
+    }
+
+
+    @RequestMapping(
+        value = "/continents",
         method = RequestMethod.GET,
         produces = { "application/json" }
     )
-    public @ResponseBody List<Continent> list()
+    public @ResponseBody
+    List<Continent> list()
     {
         return service.continents();
     }
